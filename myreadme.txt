@@ -9,6 +9,9 @@ ZZCX
         -HR
         -LQ
 
+数据集处理
+python preprocess_mydataset.py --dataset mydataset --data_path /path/to/your/dataset
+
 训练命令
 train_favae.py --ds output --batch_size 2 --print_steps 1000 --img_steps 10000 
                         --codebook_size 2048 --disc_start_epochs 20 --embed_dim 256 --use_l2_quantizer --use_cosine_sim --num_groups 32 
