@@ -247,7 +247,11 @@ def main(args, save_path):
     writer = SummaryWriter(log_path, comment="lr_{}_bs_{}_pw_{}_cw_{}_dw_{}".format(args.base_lr, args.batch_size, args.perceptual_weight, args.codebook_weight, args.disc_weight))
 
     # set learning rate
-    num_gpus = int(os.environ['WORLD_SIZE'])
+    # num_gpus = int(os.environ['WORLD_SIZE'])
+    if 'WORLD_SIZE' in os.environ:
+        num_gpus = int(os.environ['WORLD_SIZE'])
+    else:
+        num_gpus = 1  # 单卡训练时直接设为1
     lr = args.base_lr * args.batch_size * num_gpus
     accelerator.print("\nlr = base_lr {} * batch size {} * num_gpus {} = {}".format(args.base_lr, args.batch_size, num_gpus, lr))
 
