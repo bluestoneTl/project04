@@ -26,9 +26,9 @@ class LPIPS(nn.Module):
         self.lin2 = NetLinLayer(self.chns[2], use_dropout=use_dropout)
         self.lin3 = NetLinLayer(self.chns[3], use_dropout=use_dropout)
         self.lin4 = NetLinLayer(self.chns[4], use_dropout=use_dropout)
-        self.load_from_pretrained()
-        for param in self.parameters():
-            param.requires_grad = False
+        # self.load_from_pretrained()
+        # for param in self.parameters():
+        #     param.requires_grad = False
 
     def load_from_pretrained(self):
         # vgg16 + lpips
