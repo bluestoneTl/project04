@@ -61,7 +61,7 @@ class GeneralDataset(torch.utils.data.Dataset):
         #【debug】
         print("==============debug===============")
         print(f"index:{index}")
-        print(self.names_dict)
+        print(len(self.names_dict))
         #【debug】
         # Select sample
         name = self.names_dict[index]
