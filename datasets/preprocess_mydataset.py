@@ -10,8 +10,9 @@ def create_image_path_dict(data_path, subset):
     hr_images = [os.path.join(hr_path, img) for img in os.listdir(hr_path) if img.endswith('.jpg') or img.endswith('.png')]
     lq_images = [os.path.join(lq_path, img) for img in os.listdir(lq_path) if img.endswith('.jpg') or img.endswith('.png')]
 
-    # 如果需要将HR和LQ图像路径组合成一个字典，例如以HR图像名为键，LQ图像路径为值
-    image_path_dict = {os.path.basename(hr_img): [hr_img, lq_img] for hr_img, lq_img in zip(hr_images, lq_images)}
+    image_path_dict = {}
+    for index, (hr_img, lq_img) in enumerate(zip(hr_images, lq_images)):
+        image_path_dict[index] = [hr_img, lq_img]  # 使用索引作为键
 
     return image_path_dict
 
