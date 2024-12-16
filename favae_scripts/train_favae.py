@@ -408,7 +408,7 @@ if __name__ == "__main__":
     parser.add_argument("--codebook_dim", type=int, default=None, help="for projection in VitVQGAN: codebook dim is the dimension to be projected")
     parser.add_argument("--resolution", type=int, default=256, help="image resolution")
     parser.add_argument("--epochs", type=int, default=800, help="number of training epochs")
-    parser.add_argument("--num_workers", type=int, default=1, help="number of workers for data loading")        # 【原 dafault 8 】
+    parser.add_argument("--num_workers", type=int, default=0, help="number of workers for data loading")        # 【原 dafault 8 】
     parser.add_argument("--print_steps", type=int, default=10, help="log training steps to tensorboard frequency")
     parser.add_argument("--img_steps", type=int, default=100, help="log training images to tensorboard frequency")
     parser.add_argument("--base_lr", type=float, default=4.5e-6, help="the base learninig rate, the actual lr = base_lr * batch_size * num_gpus")
