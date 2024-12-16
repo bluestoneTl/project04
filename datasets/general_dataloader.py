@@ -62,7 +62,6 @@ class GeneralDataset(torch.utils.data.Dataset):
         print("==============debug===============")
         print(f"index:{index}")
         print(len(self.names_dict))
-        print(self.names_dict["h1_ce_3y_1k.png"])
         for each in self.names_dict:
             print(each)
             break
