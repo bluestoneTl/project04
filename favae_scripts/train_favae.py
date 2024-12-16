@@ -397,7 +397,7 @@ if __name__ == "__main__":
     parser.add_argument("--ds", type=str, help="path to save outputs (ckpt, tensorboard runs)")
     parser.add_argument("--batch_size", type=int, default=2, help="batch size")
     parser.add_argument("--downsample_factor", type=int, default=16, help="downsample factor for FA-VAE")
-    parser.add_argument("--save_every_epoch", type=int, default=1, help="save the checkpoint at every %\ epochs")
+    parser.add_argument("--save_every_epoch", type=int, default=100, help="save the checkpoint at every %\ epochs")
     parser.add_argument("--perceptual_weight", type=float, default=1.0, help="the lpips weight")
     parser.add_argument("--disc_weight", type=float, default=0.8, help="the discriminator weight")
     parser.add_argument("--codebook_weight", type=float, default=1.0, help="the codebook weight")
