@@ -66,6 +66,10 @@ class GeneralDataset(torch.utils.data.Dataset):
             print(each)
             break
         #【debug】
+        max_valid_index = len(self.names_dict) - 1  # 获取最大有效索引
+        if index < 0 or index > max_valid_index:
+            print(f"Index {index} is out of range. Returning None or handling gracefully.")
+        return None 
         # Select sample
         name = self.names_dict[index]
         img = self.load_image(name)
