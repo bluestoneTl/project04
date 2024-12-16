@@ -60,6 +60,10 @@ class GeneralDataset(torch.utils.data.Dataset):
         'Generates one sample of data'
         # Select sample
         name = self.names_dict[index]
+        #【debug】
+        print(f"index:{index}")
+        print(self.names_dict)
+        #【debug】
         img = self.load_image(name)
         if img is None:
             return self.__getitem__(index+1)
