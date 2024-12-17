@@ -126,21 +126,21 @@ def train(loader, model, lpips, opt_g, opt_d, epoch, start_step, writer, acceler
                 f"weight_d: {weight_d:.3f}, MemUsed: {mem_used} MiB", flush=True)
 
             # log to tensorboard
-            if hasattr(model.module.encoder, 'sigmas'):
-                enc_sigmas = model.module.encoder.sigmas.clone()
+            if hasattr(model.encoder, 'sigmas'):         #  【原  model.module.encoder  下面都锁】
+                enc_sigmas = model.encoder.sigmas.clone()
                 writer.add_scalar("train/enc_sigma_0", enc_sigmas[0], global_steps)
                 writer.add_scalar("train/enc_sigma_1", enc_sigmas[1], global_steps)
                 writer.add_scalar("train/enc_sigma_2", enc_sigmas[2], global_steps)
                 writer.add_scalar("train/enc_sigma_3", enc_sigmas[3], global_steps)
 
-                dec_sigmas = model.module.decoder.sigmas.clone()
+                dec_sigmas = model.decoder.sigmas.clone()
                 writer.add_scalar("train/dec_sigma_0", dec_sigmas[0], global_steps)
                 writer.add_scalar("train/dec_sigma_1", dec_sigmas[1], global_steps)
                 writer.add_scalar("train/dec_sigma_2", dec_sigmas[2], global_steps)
                 writer.add_scalar("train/dec_sigma_3", dec_sigmas[3], global_steps)
 
-            if hasattr(model.module, 'sigmas'):
-                sigmas = model.module.sigmas
+            if hasattr(model, 'sigmas'):
+                sigmas = model.sigmas
                 writer.add_scalar("train/sigma_0", sigmas[0], global_steps)
                 writer.add_scalar("train/sigma_1", sigmas[1], global_steps)
                 writer.add_scalar("train/sigma_2", sigmas[2], global_steps)
