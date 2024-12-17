@@ -58,14 +58,7 @@ class GeneralDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, index):
         'Generates one sample of data'
-        #【debug】
-        print("==============debug===============")
-        print(f"index:{index}")
-        print(len(self.names_dict))
-        for each in self.names_dict:
-            print(each)
-            break
-        #【debug】
+
         # Select sample
         name = self.names_dict[index]
         img = self.load_image(name)
