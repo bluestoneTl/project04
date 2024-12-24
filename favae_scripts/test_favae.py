@@ -16,7 +16,7 @@ from losses.lpips import LPIPS
 from utils import save_model
 from accelerate import Accelerator, DistributedDataParallelKwargs
 
-#python favae_scripts/test_favae.py --ds test_output -ckpt_path output/output/best.pt --test_file pkl_files/mydataset_test.pkl 
+#python favae_scripts/test_favae.py --ds test_output --ckpt_path output/output/best.pt --test_file pkl_files/mydataset_test.pkl 
 # 定义测试函数
 @torch.no_grad()
 def test(loader, model, lpips, perceptual_weight, writer, accelerator, args):
